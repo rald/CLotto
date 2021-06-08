@@ -61,14 +61,18 @@ void count(int *w,int n,int min,int max,int **f) {
 	}
 }
 
+void percent(int n,int k,int c) {
+	int p=((double)n/k*c);
+	for(int j=0;j<p;j++) printf("#");
+	for(int j=0;j<c-p;j++) printf("-");
+}
+
 void graph(int *f,int min,int max,int k) {
 	int c=30;
 	for(int i=0;i<max-min+1;i++) {
 		if(f[i]) {
 			printf(". %2d -> %6.2f%% ",i+min,(double)f[i]/k*100);
-			int p=((double)f[i]/k*c);
-			for(int j=0;j<p;j++) printf("#");
-			for(int j=0;j<c-p;j++) printf("-");
+			percent(f[i],k,c);
 			printf("\n");
 		}
 	}
@@ -79,9 +83,7 @@ void wins(int *t,int n,int g,int o) {
 	for(int i=0;i<n-g+1;i++) {
 		if(t[i]) {
 			printf("# %2d -> %6.2f%% ",i+g,(double)t[i]/o*100);
-			int p=((double)t[i]/o*c);
-			for(int j=0;j<p;j++) printf("#");
-			for(int j=0;j<c-p;j++) printf("-");
+			percent(t[i],o,c);
 			printf(" %d\n",t[i]);
 		}
 	}
