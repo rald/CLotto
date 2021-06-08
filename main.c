@@ -26,11 +26,11 @@ void print(int *a,int n) {
 	}
 }
 
-int* draw(int a,int b) {
-	int *w=malloc(sizeof(*w)*a);
-	int n=a,r=b,min=1,max=b;
+int* draw(int needed,int remaining,int min,int max) {
+	int *w=malloc(sizeof(*w)*needed);
+	int n=needed,r=remaining;
 	int j=0;
-	for(int i=0;i<a;i++) w[i]=0;
+	for(int i=0;i<needed;i++) w[i]=0;
 	for(int i=min;i<=max;i++) {
 		if(((double)n/r)>drand48()) {
 			w[j++]=i;
@@ -110,7 +110,7 @@ int main() {
 
 	for(size_t i=0;i<k;i++) {
 
-		w=draw(n,r);
+		w=draw(n,r,min,max);
 
 		count(w,n,min,max,&f);
 
