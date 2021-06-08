@@ -3,7 +3,6 @@
 #include<stdbool.h>
 #include<time.h>
 
-
 #define RANDOM_PICK 0
 #define SAMPLES_MAX 1000000
 #define NEEDED 6
@@ -11,7 +10,11 @@
 #define MIN 1
 #define MAX REMAINING
 
+
+
 int l[] = {13,19,22,25,33,39};
+
+
 
 double drand48() {
 	return rand()/(RAND_MAX+1.0);
